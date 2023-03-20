@@ -19,3 +19,4 @@ Route::post('/login', ['as' => '', 'uses' => 'AuthController@loginUser']);
 
 Route::apiResource('user', 'UserController');
 Route::apiResource('category', 'CategoryController');
+Route::apiResource('poll', 'PollController');
