@@ -18,3 +18,4 @@ Route::post('/register', ['as' => '', 'uses' => 'AuthController@createUser']);
 Route::post('/login', ['as' => '', 'uses' => 'AuthController@loginUser']);
 
 Route::apiResource('user', 'UserController');
+Route::apiResource('category', 'CategoryController');
