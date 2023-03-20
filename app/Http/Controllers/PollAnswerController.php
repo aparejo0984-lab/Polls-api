@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Poll;
+use App\Models\PollAnswer;
 use Illuminate\Http\Request;
 
-class PollController extends Controller
+class PollAnswerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class PollController extends Controller
     {
         return response()->json([
             'status' => true,
-            'poll' => Poll::with('user', 'category')->get()
+            'poll_answers' => PollAnswer::with('poll')->get()
         ]);
     }
 
@@ -33,42 +33,41 @@ class PollController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $poll = Poll::create($request->all());
+        $pollAnswer = PollAnswer::create($request->all());
 
         return response()->json([
             'status' => true,
-            'message' => "Poll created successfully!",
-            'poll' => $poll
+            'message' => "Poll answer created successfully!",
+            'pollAnswer' => $pollAnswer
         ], 200);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Poll $poll
+     * @param  \App\Models\PollAnswer $pollAnswer
      * @return \Illuminate\Http\Response
      */
-    public function show(Poll $poll)
+    public function show(PollAnswer $pollAnswer)
     {
-        $poll->load('user', 'category','answers');
         return response()->json([
             'status' => true,
-            'poll' => $poll
+            'poll_answers' => $pollAnswer
         ], 200);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Poll $poll
+     * @param  \App\Models\PollAnswer $pollanswer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Poll $poll)
+    public function edit(PollAnswer $pollanswer)
     {
         //
     }
@@ -77,33 +76,33 @@ class PollController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  \App\Models\Poll $poll
+     * @param  \App\Models\PollAnswer $pollanswer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Poll $poll)
+    public function update(Request $request, PollAnswer $pollanswer)
     {
-        $poll->update($request->all());
+        $pollanswer->update($request->all());
 
         return response()->json([
             'status' => true,
-            'message' => "Poll Updated successfully!",
-            'poll' => $poll
+            'message' => "Poll answer updated successfully!",
+            'pollanswer' => $pollanswer
         ], 200);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Poll $poll
+     * @param  \App\Models\PollAnswer $pollanswer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Poll $poll)
+    public function destroy(PollAnswer $pollanswer)
     {
-        $poll->delete();
+        $pollanswer->delete();
 
         return response()->json([
             'status' => true,
-            'message' => "Poll deleted successfully!",
+            'message' => "Poll answer deleted successfully!",
         ], 200);
     }
 }

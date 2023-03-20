@@ -31,4 +31,12 @@ class Poll extends Model
         return $this->hasOne(Category::class,'id', 'category_id');
     }
 
+        /**
+     * Get the comments for the blog post.
+     */
+    public function answers()
+    {
+        return $this->hasMany(PollAnswer::class);
+    }
+
 }
