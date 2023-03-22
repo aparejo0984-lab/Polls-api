@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register', ['as' => '', 'uses' => 'AuthController@createUser']);
 Route::post('/login', ['as' => '', 'uses' => 'AuthController@loginUser']);
 
+Route::post('/password/reset', ['as' => '', 'uses' => 'ResetPasswordController@send']);
+
 Route::apiResource('user', 'UserController');
 Route::apiResource('category', 'CategoryController');
 Route::apiResource('poll', 'PollController');

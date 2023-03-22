@@ -19,7 +19,7 @@ class UserController extends Controller
 
         return response()->json([
             'status' => true,
-            'users' => $users
+            'data' => $users
         ]);
     }
 
@@ -54,7 +54,7 @@ class UserController extends Controller
     {
         return response()->json([
             'status' => true,
-            'user' => $user
+            'data' => $user
         ], 200);
     }
 
@@ -89,7 +89,7 @@ class UserController extends Controller
         return response()->json([
             'status' => true,
             'message' => "User is updated successfully",
-            'user' => $user
+            'data' => $user
         ], 200);
     }
 

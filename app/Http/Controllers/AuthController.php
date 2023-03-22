@@ -29,10 +29,15 @@ class AuthController extends Controller
             ]);
 
             if($validateUser->fails()){
+                $message= '';
+                foreach($validateUser->errors()->getMessages() as $errMsg) {
+                    $message .= $errMsg[0];
+                }
+
                 return response()->json([
                     'status' => false,
-                    'message' => 'validation error',
-                    'errors' => $validateUser->errors()
+                    'errors' => 'validation error',
+                    'message' => $message
                 ], 401);
             }
 
@@ -46,7 +51,7 @@ class AuthController extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'User has successfully registered',
-                'user' => $user,
+                'data' => $user,
             ], 200);
 
         } catch (\Throwable $th) {
@@ -72,6 +77,7 @@ class AuthController extends Controller
             ]);
 
             if($validateUser->fails()){
+
                 return response()->json([
                     'status' => false,
                     'message' => 'validation error',
@@ -91,7 +97,7 @@ class AuthController extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'User Logged In Successfully',
-                'user' => $user
+                'data' => $user
             ], 200);
 
         } catch (\Throwable $th) {
