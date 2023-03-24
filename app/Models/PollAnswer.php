@@ -15,8 +15,15 @@ class PollAnswer extends Model
      */
     protected $fillable = [
         'poll_id',
-        'option_text',
-        'vote_percentage'
+        'option_text1',
+        'option_text2',
+        'option_text3',
+        'option_text4',
+        'option_text1_vote',
+        'option_text2_vote',
+        'option_text3_vote',
+        'option_text4_vote',
+
     ];
 
     public function poll()

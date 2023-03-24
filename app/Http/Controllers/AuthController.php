@@ -37,7 +37,8 @@ class AuthController extends Controller
                 return response()->json([
                     'status' => false,
                     'errors' => 'validation error',
-                    'message' => $message
+                    'message' => $message,
+                    'data' => []
                 ], 401);
             }
 
@@ -89,6 +90,7 @@ class AuthController extends Controller
                 return response()->json([
                     'status' => false,
                     'message' => 'Email & Password does not match with our record.',
+                    'data' => []
                 ], 401);
             }
 

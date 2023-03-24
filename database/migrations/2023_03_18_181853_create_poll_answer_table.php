@@ -16,8 +16,14 @@ class CreatePollAnswerTable extends Migration
         Schema::create('poll_answer', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->bigInteger('poll_id')->unsigned();
-            $table->text('option_text')->nullable();
-            $table->string('vote_percentage');
+            $table->text('option_text1')->nullable();
+            $table->text('option_text2')->nullable();
+            $table->text('option_text3')->nullable();
+            $table->text('option_text4')->nullable();
+            $table->string('option_text1_vote')->nullable();
+            $table->string('option_text2_vote')->nullable();
+            $table->string('option_text3_vote')->nullable();
+            $table->string('option_text4_vote')->nullable();
             $table->timestamps();
 
         });

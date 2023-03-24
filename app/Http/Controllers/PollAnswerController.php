@@ -16,7 +16,7 @@ class PollAnswerController extends Controller
     {
         return response()->json([
             'status' => true,
-            'poll_answers' => PollAnswer::with('poll')->get()
+            'data' => PollAnswer::with('poll')->get()
         ]);
     }
 
@@ -43,7 +43,7 @@ class PollAnswerController extends Controller
         return response()->json([
             'status' => true,
             'message' => "Poll answer created successfully!",
-            'pollAnswer' => $pollAnswer
+            'data' => $pollAnswer
         ], 200);
     }
 
@@ -57,7 +57,7 @@ class PollAnswerController extends Controller
     {
         return response()->json([
             'status' => true,
-            'poll_answers' => $pollAnswer
+            'data' => $pollAnswer
         ], 200);
     }
 
@@ -86,7 +86,7 @@ class PollAnswerController extends Controller
         return response()->json([
             'status' => true,
             'message' => "Poll answer updated successfully!",
-            'pollanswer' => $pollanswer
+            'data' => $pollanswer
         ], 200);
     }
 

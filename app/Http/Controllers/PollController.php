@@ -16,7 +16,7 @@ class PollController extends Controller
     {
         return response()->json([
             'status' => true,
-            'poll' => Poll::with('user', 'category')->get()
+            'data' => Poll::with('user', 'category')->get()
         ]);
     }
 
@@ -43,7 +43,7 @@ class PollController extends Controller
         return response()->json([
             'status' => true,
             'message' => "Poll created successfully!",
-            'poll' => $poll
+            'data' => $poll
         ], 200);
     }
 
@@ -58,7 +58,8 @@ class PollController extends Controller
         $poll->load('user', 'category','answers');
         return response()->json([
             'status' => true,
-            'poll' => $poll
+            'message' => "Showing Poll!",
+            'data' => $poll
         ], 200);
     }
 
