@@ -16,7 +16,7 @@ class PollController extends Controller
     {
         return response()->json([
             'status' => true,
-            'data' => Poll::with('user', 'category')->get()
+            'data' => Poll::orderBy('id', 'DESC')->with('user', 'category')->get()
         ]);
     }
 
@@ -88,7 +88,7 @@ class PollController extends Controller
         return response()->json([
             'status' => true,
             'message' => "Poll Updated successfully!",
-            'poll' => $poll
+            'data' => $poll->load('user', 'category','answers')
         ], 200);
     }
 

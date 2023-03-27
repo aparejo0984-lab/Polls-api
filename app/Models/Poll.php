@@ -36,7 +36,7 @@ class Poll extends Model
      */
     public function answers()
     {
-        return $this->hasMany(PollAnswer::class);
+        return $this->hasOne(PollAnswer::class);
     }
 
 }

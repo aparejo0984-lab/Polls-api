@@ -76,17 +76,17 @@ class PollAnswerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  \App\Models\PollAnswer $pollanswer
+     * @param  \App\Models\PollAnswer $pollAnswer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PollAnswer $pollanswer)
+    public function update(Request $request, PollAnswer $pollAnswer)
     {
-        $pollanswer->update($request->all());
+        $pollAnswer->update($request->all());
 
         return response()->json([
             'status' => true,
             'message' => "Poll answer updated successfully!",
-            'data' => $pollanswer
+            'data' => $pollAnswer
         ], 200);
     }
 
