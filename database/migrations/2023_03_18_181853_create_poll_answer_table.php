@@ -20,10 +20,10 @@ class CreatePollAnswerTable extends Migration
             $table->text('option_text2')->nullable();
             $table->text('option_text3')->nullable();
             $table->text('option_text4')->nullable();
-            $table->string('option_text1_vote')->nullable();
-            $table->string('option_text2_vote')->nullable();
-            $table->string('option_text3_vote')->nullable();
-            $table->string('option_text4_vote')->nullable();
+            $table->string('option1_vote_percentage')->nullable();
+            $table->string('option2_vote_percentage')->nullable();
+            $table->string('option3_vote_percentage')->nullable();
+            $table->string('option4_vote_percentage')->nullable();
             $table->timestamps();
 
         });

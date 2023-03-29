@@ -16,15 +16,16 @@ class CreatePollVoteTable extends Migration
         Schema::create('poll_vote', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->bigInteger('poll_id')->unsigned();
-            $table->bigInteger('answer_id')->unsigned();
+            $table->bigInteger('poll_answer_id')->unsigned();
             $table->bigInteger('user_id')->unsigned();
+            $table->string('given_answer')->nullable();
             $table->timestamps();
         });
 
         Schema::table('poll_vote', function($table) {
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('poll_id')->references('id')->on('poll');
-            $table->foreign('answer_id')->references('id')->on('poll_answer');
+            $table->foreign('poll_answer_id')->references('id')->on('poll_answer');
         });
     }
 

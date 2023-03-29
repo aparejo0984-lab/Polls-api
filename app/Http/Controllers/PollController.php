@@ -16,7 +16,7 @@ class PollController extends Controller
     {
         return response()->json([
             'status' => true,
-            'data' => Poll::orderBy('id', 'DESC')->with('user', 'category')->get()
+            'data' => Poll::where('enable', '=', 1)->orderBy('id', 'DESC')->with('user', 'category')->get()
         ]);
     }
 
@@ -55,7 +55,7 @@ class PollController extends Controller
      */
     public function show(Poll $poll)
     {
-        $poll->load('user', 'category','answers');
+        $poll->load('user', 'category','answers','rates');
         return response()->json([
             'status' => true,
             'message' => "Showing Poll!",

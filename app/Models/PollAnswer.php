@@ -19,11 +19,10 @@ class PollAnswer extends Model
         'option_text2',
         'option_text3',
         'option_text4',
-        'option_text1_vote',
-        'option_text2_vote',
-        'option_text3_vote',
-        'option_text4_vote',
-
+        'option1_vote_percentage',
+        'option2_vote_percentage',
+        'option3_vote_percentage',
+        'option4_vote_percentage'
     ];
 
     public function poll()

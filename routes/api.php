@@ -23,3 +23,4 @@ Route::apiResource('user', 'UserController');
 Route::apiResource('category', 'CategoryController');
 Route::apiResource('poll', 'PollController');
 Route::apiResource('pollAnswer', 'PollAnswerController');
+Route::apiResource('pollVote', 'PollVoteController');
